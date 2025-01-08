@@ -1,4 +1,4 @@
-# EasyStyle
+# Classic
 
 A comprehensive utility library designed to standardize and simplify the management of styles across web application and cache styles. This library facilitates consistent styling, theme management and dynamically combine components styles i.e varient,size.
 
@@ -23,13 +23,13 @@ Picture this: You're a web developer tired of juggling stylesheets like a circus
 Install the gem and add to the application's Gemfile by executing:
 
 ```bash
-bundle add easy_style
+bundle add classic
 ```
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
 ```bash
-gem install easy_style
+gem install classic
 ```
 
 ## Usage
@@ -54,7 +54,7 @@ gem install easy_style
 
   tw_class_merge = TailwindMerge::Merger.new
 
-  EasyStyle.configure do |config|
+  Classic.configure do |config|
     config.files = Dir["style/**/*.yaml"]
     config.raise_error_on_not_found = true
     config.auto_reload_on_change = true # For rails only.
@@ -128,7 +128,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/EloquentStudio/easy_style. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/EloquentStudio/easy_style/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/EloquentStudio/classic. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/EloquentStudio/classic/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -136,4 +136,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the EasyStyle project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/EloquentStudio/easy_style/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Classic project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/EloquentStudio/classic/blob/master/CODE_OF_CONDUCT.md).

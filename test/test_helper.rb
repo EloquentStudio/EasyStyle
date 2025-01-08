@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
 $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
-require "easy_style"
+require "classic"
 
 require "minitest/autorun"
 require "minitest/focus"
 require "minitest/rg"
 
-class EasyStyleTest < Minitest::Spec
+class ClassicTest < Minitest::Spec
   register_spec_type(self) do |desc, *addl|
-    addl.include? :easy_style
+    addl.include? :classic
   end
 
   def setup
-    return if EasyStyle.object
+    return if Classic.object
 
-    EasyStyle.configure do |config|
+    Classic.configure do |config|
       config.files = Dir["test/fixtures/style/**/*.yml"]
       config.raise_error_on_not_found = true
     end

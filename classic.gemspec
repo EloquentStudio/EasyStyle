@@ -1,22 +1,22 @@
 # frozen_string_literal: true
 
-require_relative "lib/easy_style/version"
+require_relative "lib/classic/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "easy_style"
-  spec.version = EasyStyle::VERSION
+  spec.name = "classic"
+  spec.version = Classic::VERSION
   spec.authors = ["Jiren Patel"]
   spec.email = ["jiren@eloquent.studio"]
 
   spec.summary = "A comprehensive utility library designed to standardize and simplify the management of styles across web application."
   spec.description = "A comprehensive utility library designed to standardize and simplify the management of styles across web application and cache styles. This library facilitates consistent styling, theme management and dynamically combine components styles i.e varient,size."
-  spec.homepage = "https://github.com/EloquentStudio/EasyStyle"
+  spec.homepage = "https://github.com/EloquentStudio/classic"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.1.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/EloquentStudio/EasyStyle"
-  spec.metadata["changelog_uri"] = "https://github.com/EloquentStudio/EasyStyle"
+  spec.metadata["source_code_uri"] = "https://github.com/EloquentStudio/classic"
+  spec.metadata["changelog_uri"] = "https://github.com/EloquentStudio/classic"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
