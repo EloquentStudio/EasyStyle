@@ -1,0 +1,23 @@
+label: s-label
+
+inputs:
+  selectbox:
+    dropdown:
+      options: i-s-dropdown-option
+
+post_page:
+  size:
+    sm: s-sm
+    lg: s-lg
+  header:
+    title: pp-title
+    description: pp-description
+    size:
+      sm: h-s-sm
+      lg: h-s-lg
+  varient:
+    list: pp-v-list
+    boxes: pp-v-boxes
+
+table:
+  default: t-default

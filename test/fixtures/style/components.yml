@@ -1,0 +1,37 @@
+btn:
+  base: base
+  varient:
+    default: v-default
+    destructive: v-destructive
+    outline: v-outline
+    link: v-link
+  size:
+    default: s-default
+    sm: s-sm
+    lg: s-lg
+    icon: s-icon
+  default: "(varient.default,size.default)"
+
+card:
+  <self: c-container
+  header: c-header
+  title: c-title
+  description: c-description
+  content: c-content
+  footer: c-footer
+
+description_list:
+  <self: dl-description-list-container
+  header:
+    <self: dl-header-container
+    title: dl-title
+    description: dl-description
+  item:
+    <self: dl-item-container
+    name: dl-item-name
+    layout:
+      default: dl-item-layout-row
+      column: dl-item-layout-column
+
+"@aliases":
+  btn-primary: "btn(varient.outline,size.lg)"
