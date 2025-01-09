@@ -37,7 +37,10 @@ module EasyStyle
           @data[prefix] = file_data
           build_aliases(aliases, prefix: prefix)
         else
-          @data.merge!(file_data)
+          @data.merge!(file_data) do |key, old_value, new_value|
+            raise EasyStyle::Error, "dublicate value found for #{key} - values #{old_value}, #{new_value}"
+          end
+
           build_aliases(aliases)
         end
       end
@@ -55,9 +58,15 @@ module EasyStyle
       component_path = if component.is_a?(String)
         name
       elsif component.is_a?(Hash)
+        # default value is style expression(i.e varient.default,size.default)) then add componet name
+        # (i.e btn(varient.default,size.default)))
+        # else add default to component name(i.e btn) with "." i.e(btn.default)
         if component.key?(DEFAULT_STYLE_KEY)
-          path = "#{name}.#{component[DEFAULT_STYLE_KEY]}"
-          path.match?(STYLE_EXP_REGX) ? "#{name}.#{component[DEFAULT_STYLE_KEY]}" : name
+          if component[DEFAULT_STYLE_KEY].match?(STYLE_EXP_REGX)
+            "#{name}#{component[DEFAULT_STYLE_KEY]}"
+          else
+            "#{name}.#{DEFAULT_STYLE_KEY}"
+          end
         elsif component.key?(SELF_STYLE_KEY)
           "#{name}.#{SELF_STYLE_KEY}"
         end
@@ -96,7 +105,7 @@ module EasyStyle
         options = ""
       end
 
-      {component: component, options: options.split(",").map(&:strip)}
+      { component: component, options: options.split(",").map(&:strip), name: style }
     end
 
     def collect_styles(style_fn)
@@ -108,7 +117,7 @@ module EasyStyle
       end
 
       # If component is direct css class. i.e "flex flex-col space-y-1.5 p-6"
-      return style_not_found_value(style_fn[:component]) unless component
+      return style_not_found_value(style_fn[:name]) unless component
 
       # In case of i.e "card.header" component is end result css classes.
       return component if component.is_a?(String)
@@ -139,7 +148,7 @@ module EasyStyle
         if option
           styles << option
         else
-          style_not_found_value("#{style_fn[:options]} for #{style_fn[:component]}")
+          style_not_found_value(style_fn[:name])
         end
       end
 
@@ -155,7 +164,7 @@ module EasyStyle
     def build_aliases(aliases, prefix: nil)
       aliases&.each do |name, style|
         if prefix
-          @entries["#{prefix}.@#{name}"] = lookup("#{prefix}.#{style}")
+          @entries["#{prefix}.#{name}"] = lookup("#{prefix}.#{style}")
         else
           @entries[name] = lookup(style)
         end

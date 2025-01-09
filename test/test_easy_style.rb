@@ -50,20 +50,20 @@ describe "EasyStyle", :easy_style do
   end
 
   describe "style expression" do
-    it "combine muiltiple styles -> btn(varient.destructive,size.icon)" do
-      _("btn(varient.destructive,size.icon)".to_cls).must_equal "base v-destructive s-icon"
+    it "combine muiltiple styles -> btn(variant.destructive,size.icon)" do
+      _("btn(variant.destructive,size.icon)".to_cls).must_equal "base v-destructive s-icon"
     end
 
     it "single style expression -> btn(size.icon)" do
       _("btn(size.icon)".to_cls).must_equal "base s-icon"
     end
 
-    it "combine nested muiltiple styles -> post_page(header.sm,item.content.varient.list)" do
-      _("post_page(size.sm, header.size.sm, item.content.varient.list)".to_cls).must_equal "s-sm h-s-sm pp-v-list"
+    it "combine nested muiltiple styles -> post_page(header.sm,item.content.variant.list)" do
+      _("post_page(size.sm, header.size.sm, item.content.variant.list)".to_cls).must_equal "s-sm h-s-sm pp-v-list"
     end
 
     it "raise error if sub or variant style not find" do
-      _ { "btn(varient-np.destructive,size.icon)".to_cls }.must_raise EasyStyle::NotFoundError
+      _ { "btn(variant-np.destructive,size.icon)".to_cls }.must_raise EasyStyle::NotFoundError
     end
   end
 

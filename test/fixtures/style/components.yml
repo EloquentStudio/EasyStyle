@@ -1,6 +1,6 @@
 btn:
   base: base
-  varient:
+  variant:
     default: v-default
     destructive: v-destructive
     outline: v-outline
@@ -10,7 +10,7 @@ btn:
     sm: s-sm
     lg: s-lg
     icon: s-icon
-  default: "(varient.default,size.default)"
+  default: "(variant.default,size.default)"
 
 card:
   <self: c-container
@@ -34,4 +34,4 @@ description_list:
       column: dl-item-layout-column
 
 "@aliases":
-  btn-primary: "btn(varient.outline,size.lg)"
+  btn-primary: "btn(variant.outline,size.lg)"

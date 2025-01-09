@@ -15,7 +15,7 @@ post_page:
     size:
       sm: h-s-sm
       lg: h-s-lg
-  varient:
+  variant:
     list: pp-v-list
     boxes: pp-v-boxes
 
