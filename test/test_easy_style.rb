@@ -43,7 +43,7 @@ describe "EasyStyle", :easy_style do
     _("table".to_cls).must_equal "t-default"
   end
 
-  it "raise error if style not find" do
+  it "raise an error if style not find" do
     _ { "not-found".to_cls }.must_raise EasyStyle::NotFoundError
 
     _ { "table.xyz".to_cls }.must_raise EasyStyle::NotFoundError
@@ -62,7 +62,7 @@ describe "EasyStyle", :easy_style do
       _("post_page(size.sm, header.size.sm, item.content.variant.list)".to_cls).must_equal "s-sm h-s-sm pp-v-list"
     end
 
-    it "raise error if sub or variant style not find" do
+    it "raise an error if sub or variant style not find" do
       _ { "btn(variant-np.destructive,size.icon)".to_cls }.must_raise EasyStyle::NotFoundError
     end
   end
@@ -71,5 +71,27 @@ describe "EasyStyle", :easy_style do
     it "return style using style alias" do
       _("btn-primary".to_cls).must_equal "base v-outline s-lg"
     end
+  end
+
+  it "raise an error if dublicate keys in other files" do
+    EasyStyle.object.config.files << "test/fixtures/style/dublicate.keys"
+
+    err = _{ EasyStyle.reload! }.must_raise EasyStyle::Error
+    _(err.message).must_match /dublicate value found for table/i
+
+    EasyStyle.object.config.files.pop
+    EasyStyle.reload!
+  end
+
+  it "add file prefix to keys" do
+    EasyStyle.object.config.file_prefix = true
+    EasyStyle.reload!
+
+    _("components.btn-primary".to_cls).must_equal "base v-outline s-lg"
+    _("components.btn(variant.destructive,size.icon)".to_cls).must_equal "base v-destructive s-icon"
+    _("app.table".to_cls).must_equal "t-default"
+
+    EasyStyle.object.config.file_prefix = false
+    EasyStyle.reload!
   end
 end
