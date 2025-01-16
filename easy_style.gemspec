@@ -3,7 +3,7 @@
 require_relative "lib/easy_style/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "easy_style"
+  spec.name = "easystyle"
   spec.version = EasyStyle::VERSION
   spec.authors = ["Jiren Patel"]
   spec.email = ["jiren@eloquent.studio"]
