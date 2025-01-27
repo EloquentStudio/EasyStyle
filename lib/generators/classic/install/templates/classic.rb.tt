@@ -1,0 +1,8 @@
+# tw_class_merge = TailwindMerge::Merger.new
+
+Classic.configure do |config|
+  config.files = Dir["<%= @dir_name %>/**/*.yaml"]
+  config.raise_error_on_not_found = Rails.env.development?
+  config.auto_reload_on_change = Rails.env.development?
+  # config.classes_merge_handler = proc { |classes| tw_class_merge.merge(classes) }
+end

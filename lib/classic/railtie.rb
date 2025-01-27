@@ -8,6 +8,8 @@ module Classic
     end
 
     def self.watch_style_files(app)
+      return unless Classic.object
+
       style_files = Classic.object.files.map { |f| Rails.root.join(f).to_s }
       reloader = app.config.file_watcher.new(style_files) {}
       app.reloaders << reloader

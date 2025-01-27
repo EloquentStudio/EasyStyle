@@ -5,9 +5,9 @@ module Classic
     attr_accessor :files, :file_prefix, :raise_error_on_not_found, :classes_merge_handler,
       :auto_reload_on_change
 
-    def validate!
+    def validate
       if files.nil? || files.empty?
-        raise Classic::Error, "'files' option value is required."
+        puts "[Classic configuration] style directory not present or 'files' in style directory not present."
       end
     end
   end

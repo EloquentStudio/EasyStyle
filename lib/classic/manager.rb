@@ -30,6 +30,9 @@ module Classic
       files.each do |file|
         extname = File.extname(file)
         file_data = (extname == "json") ? JSON.load_file(file) : YAML.load_file(file)
+
+        next unless file_data.is_a?(Hash)
+
         aliases = file_data.delete(ALIASES_KEY) if file_data.key?(ALIASES_KEY)
 
         if config.file_prefix

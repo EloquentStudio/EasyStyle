@@ -51,7 +51,6 @@ gem install classic
     ```
 
   ```ruby
-
   tw_class_merge = TailwindMerge::Merger.new
 
   Classic.configure do |config|
@@ -61,6 +60,16 @@ gem install classic
     config.classes_merge_handler = proc { |classes| tw_class_merge.merge(classes) }
   end
   ```
+
+  * Rails: Generate config. Default style directory is "style"
+    ```
+    ./bin/rails g classic:install
+    ```
+
+    Specify style directory
+    ```
+    ./bin/rails g classic:install app_style
+    ```
 
 2. How to define style using yml.
 

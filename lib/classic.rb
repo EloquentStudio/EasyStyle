@@ -15,7 +15,7 @@ module Classic
     config = Configuration.new
     yield config
     config.classes_merge_handler ||= proc { |classes| classes.join(" ") }
-    config.validate!
+    config.validate
 
     @classic = Classic::Manager.new(config: config)
     @classic.load
