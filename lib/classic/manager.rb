@@ -61,8 +61,8 @@ module Classic
       component_path = if component.is_a?(String)
         name
       elsif component.is_a?(Hash)
-        # default value is style expression(i.e varient.default,size.default)) then add componet name
-        # (i.e btn(varient.default,size.default)))
+        # default value is style expression(i.e variant.default,size.default)) then add componet name
+        # (i.e btn(variant.default,size.default)))
         # else add default to component name(i.e btn) with "." i.e(btn.default)
         if component.key?(DEFAULT_STYLE_KEY)
           if component[DEFAULT_STYLE_KEY].match?(STYLE_EXP_REGX)
@@ -89,8 +89,8 @@ module Classic
     end
 
     # Matches:
-    #  btn(varient.default,size.default)
-    #  (varient.default,size.default)
+    #  btn(variant.default,size.default)
+    #  (variant.default,size.default)
     STYLE_EXP_REGX = /([\w.]*)\(([\w.,\s]*)\)/
 
     def parse(style)

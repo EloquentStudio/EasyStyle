@@ -1,6 +1,6 @@
 # Classic
 
-A comprehensive utility library designed to standardize and simplify the management of styles across web application and cache styles. This library facilitates consistent styling, theme management and dynamically combine components styles i.e varient,size.
+A comprehensive utility library designed to standardize and simplify the management of styles across web application and cache styles. This library facilitates consistent styling, theme management and dynamically combine components styles i.e variant,size.
 
 ##  What's in it?
 
@@ -76,7 +76,7 @@ gem install classic
   ```yml
   btn:
     base: inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-5
-    varient:
+    variant:
       default: bg-primary text-primary-foreground shadow hover:bg-primary/90
       destructive: bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90
       outline: border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground
@@ -88,7 +88,7 @@ gem install classic
       sm: h-8 rounded-md px-3 text-xs
       lg: h-10 rounded-md px-8
       icon: h-9 w-9
-    default: "(varient.default,size.default)"
+    default: "(variant.default,size.default)"
 
   card:
     <self: rounded-xl border bg-card text-card-foreground shadow
@@ -99,14 +99,14 @@ gem install classic
     footer: flex items-center p-6 pt-0
 
   "@aliases":
-    btn-primary: "btn(varient.outline,size.default)"
+    btn-primary: "btn(variant.outline,size.default)"
   ```
 
 3. How to use in erb, haml templates or any other templates by calling "to_cls" method on string.
 
   * Combine options.
-    - `btn(varient.outline,size.lg).to_cls`
-    - `btn(varient.link,size.default).to_cls`
+    - `btn(variant.outline,size.lg).to_cls`
+    - `btn(variant.link,size.default).to_cls`
 
   * Default style define in  `default` key.
     - `btn.to_cls`
@@ -118,7 +118,7 @@ gem install classic
     - `card.to_cls` This will use `<self` key of card.
 
   * Add custom classes.
-    - `btn(varient.outline,size.lg).to_cls("mt-2 px-2")`
+    - `btn(variant.outline,size.lg).to_cls("mt-2 px-2")`
     - `btn.to_cls("mt-2 px-2")` # it will merge classes to btn default syle
 
   * If you are using Tailwind css then add yaml files to your tailwind config content section.

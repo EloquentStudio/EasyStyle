@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["jiren@eloquent.studio"]
 
   spec.summary = "A comprehensive utility library designed to standardize and simplify the management of styles across web application."
-  spec.description = "A comprehensive utility library designed to standardize and simplify the management of styles across web application and cache styles. This library facilitates consistent styling, theme management and dynamically combine components styles i.e varient,size."
+  spec.description = "A comprehensive utility library designed to standardize and simplify the management of styles across web application and cache styles. This library facilitates consistent styling, theme management and dynamically combine components styles i.e variant,size."
   spec.homepage = "https://github.com/EloquentStudio/classic"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.1.0"
